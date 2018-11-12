@@ -6,7 +6,7 @@ spotify_bus = session_bus.get_object(
         "org.mpris.MediaPlayer2.spotify",
         "/org/mpris/MediaPlayer2" )
 
-def get_properties():
+def spotify_get_current():
     try:
         spotify_props = dbus.Interface(
             spotify_bus, "org.freedesktop.DBus.Properties" )
@@ -21,7 +21,7 @@ def run_spotify_command(command):
     subprocess.call(command.split())
 
 def send_spotify_command(command):
-    c_title, c_artist = get_properties()
+    c_title, c_artist = spotify_get_current()
     if not(c_artist == 'null' and c_title == 'null'):
         if command.lower() == "play":
             run_spotify_command("Play")
@@ -29,7 +29,5 @@ def send_spotify_command(command):
             run_spotify_command("Pause")
         elif command.startswith("OpenUri string:spotify:track:"):
             run_spotify_command(command)
-        elif command.lower() == "current":
-            return get_properties()
     else:
         return 'null'

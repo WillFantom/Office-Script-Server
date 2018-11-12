@@ -1,0 +1,22 @@
+{
+    "scripts": [
+        {
+            "name":"ASCII Fireplace",
+            "desciption":"A CPU intensive ASCII fireplace",
+            "file":"fireplace.sh",
+            "display":"true"
+        },
+        {
+            "name":"Nyan Cat",
+            "desciption":"Nyan cat on an endless loop",
+            "file":"nyan.sh",
+            "display":"true"
+        },
+        {
+            "name":"Open Spotify",
+            "desciption":"Opens Spotify GUI on the servers display",
+            "file":"spotify_open.sh",
+            "display":"false"
+        }
+    ]
+}
